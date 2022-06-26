@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задача о встрече</title>
+    <script src="./three.js"></script>
+    <script src="./OrbitControls.js"></script>
+    <script src="./jquery-1.12.4.js"></script>
+    <script src="./jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#draggable").draggable();
+        });
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="draggable" class="ui-widget-content">
+
+        <div class="btn-wrapper-rotation-turn">
+            <button id="camera-move" class="btn btn-camera-move">Свободное движение камерой</button> 
+        </div>
+        <!--<div class="btn-wrapper-rotation-turn">
+            <button id="rotation-turn" class="btn btn-rotation-turn">Вращение вокруг фигур</button> 
+        </div>-->
+
+        <div id="straight-problem-div" class="straight-problem-div">
+            <div class="btn-wrapper-rotation-turn">
+                <button id="projections-turn" class="btn btn-projections-turn">Показать проекции на плоскости</button> 
+            </div>
+            <div id="t-T-sliders" class="t-T-sliders">
+                <input id="t-slider" class="slider t-slider" type="range" min="0" max="10" value="5" step="1">
+                <label id="tVal" class="lbl tVal" for="t-slider">t = 5</label> 
+                <br>
+                <input id="T-slider" class="slider T-slider" type="range" min="0" max="10" value="10" step="0.5"> 
+                <label id="TVal" class="lbl TVal" for="T-slider">T = 10</label>
+            </div>
+            <label id="G-volume-lbl" class="lbl results-lbl">
+                Объем G: <i id="GVolume"></i>
+            </label>
+            <label id="g-volume-lbl" class="lbl results-lbl">
+                Объем g: <i id="gVolume"></i>
+            </label>
+            <label id="probability-lbl" class="lbl results-lbl">
+                Вероятность: <i id="probability"></i>
+            </label>
+            <label id="TVal-reversed-task-lbl" class="lbl results-lbl">
+                T = <i id="TVal-reversed-task"></i>
+            </label>
+    
+            <input id="visibleSmallFigure" class="toggle-button" type="checkbox" checked>
+            <label for="toggle-button" class="lbl">Малая фигура видима</label>
+            <br> <br>
+            <input id="visibleBigFigure" type="checkbox" class="toggle-button" checked>
+            <label for="toggle-button" class="lbl">Большая фигура видима</label>
+        </div>
+
+        <div id="projections-div" class="projections-div">
+            <button id="back" class="btn back">Назад</button>
+            <button id="prj-anim" class="btn prj-animm">Получение малой фигуры</button>
+            <input type="range" id="prisms-height-xy" min="0" max="10" value="0">
+            <label for="prisms-height-xy">XY</label>
+            <br>
+            <input type="range" id="prisms-height-zy" min="0" max="10" value="0">
+            <label for="prisms-height-zy">ZY</label>
+            <br>
+            <input type="range" id="prisms-height-zx" min="0" max="10" value="0"> 
+            <label for="prisms-height-zx">ZX</label>
+            <br>
+            <br>
+            <input id="visible-triprisms" class="toggle-button visible-triprisms" type="checkbox">
+            <label for="visible-triprisms" class="lbl">Пересечение треугольных призм</label>
+        </div>
+
+    </div>
+    <div id="WebGL-output"></div>
+    <script src="meetingproblem.js"></script>
+</body>
+</html>
